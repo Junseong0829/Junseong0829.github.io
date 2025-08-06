@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@import url('https://cdn.jsdelivr.net/gh/webfontworld/SpoqaHanSansNeo/SpoqaHanSansNeo.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Spoqa Han Sans Neo', sans-serif;
+}
+
+h1, nav, .section-title {
+  font-family: 'Montserrat', sans-serif;
+}
