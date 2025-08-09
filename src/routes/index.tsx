@@ -11,7 +11,7 @@ export default function Portfolio() {
       {/* Navigation */}
         <nav className="sticky top-0 z-50 backdrop-blur-sm text-white transition-all duration-500 bg-[#3E3F29]/100">
         <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-          <h1 className="text-lg md:text-xl font-bol">LJS's Portfolio</h1>
+          <h1 className="text-lg md:text-xl font-bold">LJS's Portfolio</h1>
           <ul className="flex space-x-6 text-sm font-semibold">
             {["About me", "Skills", "Archiving", "Projects", "Career"].map((section) => (
               <li key={section}>
@@ -36,13 +36,13 @@ export default function Portfolio() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-amber-300 text-4xl md:text-6xl font-extrabold">LJS's Portfolio</h1>
+          <h1 className="text-white text-4xl md:text-6xl font-bold">LJS's Portfolio</h1>
           <div className="flex justify-center my-11">
              <div className="w-10 h-1 bg-white mb-4 rounded-full" />
           </div>
-          <p className="font-normal mt-4 text-lg md:text-2xl">안녕하세요.</p>
-          <p className="font-normal mt-4 text-lg md:text-2xl">작고 단단한 성취를 쌓아가는</p>
-          <p className="font-normal mt-4 text-lg md:text-2xl">프론트엔드 개발자 이준성입니다.</p>
+          <p className="text-white/80 font-normal mt-4 text-lg md:text-2xl">안녕하세요.</p>
+          <p className="text-white/80 font-normal mt-4 text-lg md:text-2xl">작고 단단한 성취를 쌓아가는</p>
+          <p className="text-white/80 font-normal mt-4 text-lg md:text-2xl">프론트엔드 개발자 이준성입니다.</p>
         </motion.div>
       </section>
 
@@ -55,7 +55,7 @@ export default function Portfolio() {
           viewport={{ once: true }}
         > 
            <div className="flex justify-center">
-            <h2 className="text-4xl font-bold mb-12 border-b-4 border-black pb-2 inline-block px-4 text-center">About Me</h2>
+            <h2 className="text-4xl font-bold mb-12 border-b-3 border-black pb-2 inline-block px-4 text-center">About Me</h2>
            </div>
            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 text-gray-700 mx-auto max-w-[1200px] ">
             <div className="min-w-[200px] max-w-[260px] flex items-start space-x-3 mx-auto">
@@ -113,7 +113,7 @@ export default function Portfolio() {
           viewport={{ once: true }}
         >
           <div className="flex justify-center">
-            <h2 className="text-4xl font-bold mb-12 border-b-4 border-black pb-2 inline-block px-4 text-center">Skills</h2>
+            <h2 className="text-4xl font-bold mb-12 border-b-3 border-black pb-2 inline-block px-4 text-center">Skills</h2>
           </div>
         <div className="flex justify-center">
           <div className="bg-[#fff6dd] rounded-3xl p-8 shadow-2xl w-full max-w-5xl space-y-6">
@@ -150,7 +150,14 @@ export default function Portfolio() {
                   { name: "Figma", color: "bg-[#F24E1E]" },
                 ],
               },
-             
+              {
+                label: "DevOps",
+                src: "../devops.png",
+                skills: [
+                  { name: "Vercel", color: "bg-[#000000]"},
+                ]
+              }
+
             ].map((section) => (
               <div key={section.label} className="flex items-center gap-4">
                 {/* 아이콘 + 카테고리 이름 */}
@@ -190,48 +197,61 @@ export default function Portfolio() {
           viewport={{ once: true }}
         >
           <div className="flex justify-center">
-            <h2 className="text-4xl font-bold mb-6 border-b-2 border-black pb-2 inline-block">Archiving</h2>
+            <h2 className="text-4xl font-bold mb-6 border-b-3 border-black pb-2 inline-block">Archiving</h2>
           </div>
+
           <div className="flex flex-col md:flex-row gap-6 p-10 justify-center items-center">
           {/* GitHub 카드 */}
-          <a
-            href="https://github.com/Junseong0829"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-white rounded-2xl shadow-lg p-8 w-[400px] flex flex-col items-start space-y-4 hover:shadow-xl transition-shadow"
-          >
-            <div className="flex items-center w-full gap-1">
-              <img
-                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-                alt="GitHub"
-                className="w-20"
-              />
-              <h2 className="text-4xl font-extrabold text-black">GitHub</h2>
-            </div>
-            <p className="text-blue-500 text-lg underline">github.com/Junseong0829</p>
-            <p className="text-gray-600">프로젝트의 시작과 성장의 기록</p>
-          </a>
+          <motion.div
+                className="bg-white border hover:shadow-lg transition-all duration-0 shadow rounded-xl overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+            <a
+              href="https://github.com/Junseong0829"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-2xl shadow-lg p-8 w-[400px] flex-col items-start space-y-4 hover:shadow-xl transition-shadow"
+            >
+              <div className="flex items-center w-full gap-1 h-20">
+                <img
+                  src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                  alt="GitHub"
+                  className="w-20"
+                />
+                <h2 className="text-4xl font-extrabold text-black">GitHub</h2>
+              </div>
+              <p className="text-blue-500 text-lg underline">github.com/Junseong0829</p>
+              <p className="text-gray-600">프로젝트의 시작과 성장의 기록</p>
+            </a>
+          </motion.div>
 
           {/* 블로그 카드 */}
-          <a
-            href="https://check-pattern.tistory.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-white rounded-2xl shadow-lg p-8 w-[400px] flex flex-col items-start space-y-4 hover:shadow-xl transition-shadow"
-          >
-            <div className="flex items-center gap-3 w-full">
-              <img
-                src="../tistory.png"
-                alt="블로그"
-                className="w-20"
-              />
-              <h2 className="text-3xl font-extrabold text-black">체크무늬 공대생</h2>
-            </div>
-            <p className="text-blue-500 text-lg underline">
-              check-pattern.tistory.com
-            </p>
-            <p className="text-gray-600">공부의 흔적을 기록하다</p>
-          </a>
+          <motion.div
+                className="bg-white border hover:shadow-lg transition-all duration-0 shadow rounded-xl overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+            <a
+              href="https://check-pattern.tistory.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white rounded-2xl shadow-lg p-8 w-[400px] flex-col items-start space-y-4 hover:shadow-xl transition-shadow"
+            >
+              <div className="flex items-center gap-3 w-full h-20">
+                <img
+                  src="../tistory.png"
+                  alt="블로그"
+                  className="w-20"
+                />
+                <h2 className="text-3xl font-extrabold text-black">체크무늬 공대생</h2>
+              </div>
+              <p className="text-blue-500 text-lg underline">
+                check-pattern.tistory.com
+              </p>
+              <p className="text-gray-600">공부의 흔적을 기록하다</p>
+            </a>
+          </motion.div>
         </div>
         </motion.div>
       </section>
@@ -245,20 +265,30 @@ export default function Portfolio() {
           viewport={{ once: true }}
         >
           <div className="flex justify-center">
-            <h2 className="text-4xl font-bold mb-6 border-b-2 border-black pb-2 inline-block">Projects</h2>
+            <h2 className="text-4xl font-bold mb-6 border-b-3  border-black pb-2 inline-block">Projects</h2>
           </div>
           <div className="grid gap-8 lg:grid-cols-2 mt-10 mx-auto max-w-[1000px]">
             {/* Project Block 1*/}
               <motion.div
-                className="bg-white border hover:shadow-lg transition-all duration-300 shadow rounded-xl overflow-hidden"
+                className="bg-white border hover:shadow-lg transition-all duration-0 shadow rounded-xl overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold">꼬르륵</h3>
-                  <p className="mt-2 text-gray-600 text-base">
-                    GIST 구성원들을 위한 AI 기반 학식 식단/혼잡 종합정보 서비스
-                  </p>
+                <div className="gap-2 p-6">
+                  <div className="flex items-center gap-2">                    
+                    <h3 className="text-pink-600 text-xl font-semibold">꼬르륵</h3>
+                    <p className="flex-1 text-gray-500 font-medium">(2025.04 ~ )</p>
+                    <p className="bg-pink-200 border-pink-400 border rounded-xl px-3">6인</p>
+                  </div>
+                  <p className="mt-2 font-semibold text-gray-600">GIST 구성원들을 위한 AI 기반 학식 식단/혼잡 종합정보 서비스</p>
+                  <div className="py-2">
+                    <p className="pl-2">• 학식 메뉴를 보는 과정의 불편함에서 착안된 프로젝트</p>
+                    <p className="pl-2">• 메뉴 조회 기능을 탑재한 1차 배포 완료</p>
+                    <p className="pl-2">• 추후 식당 혼잡도 및 예상 대기 시간 정보 제공 예정</p>
+                  </div>
+                  <div className="bg-amber-100 border border-amber-400 px-2 rounded-lg">
+                    React, TypeScript, Tailwind CSS, Axios, Tanstack-router
+                  </div>
                   <div className="mt-4 flex justify-between text-sm">
                     <a href="https://github.com/School-meal-lover/frontend" className="text-pink-600 hover:underline">GitHub →</a>
                     <a href="https://grrrr-5tw.pages.dev/" className="text-pink-600 hover:underline">Live Demo →</a>
@@ -267,21 +297,56 @@ export default function Portfolio() {
               </motion.div>
               {/* Project Block 2*/}
               <motion.div
-                className="bg-white border hover:shadow-lg transition-all duration-300 shadow rounded-xl overflow-hidden"
+                className="bg-white border hover:shadow-lg transition-all duration-0 shadow rounded-xl overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold">Cooking Recipe Management Service</h3>
-                  <p className="mt-2 text-gray-600 text-base">
-                    다양한 요리법과 영양 성분, 하룻동안의 총 영양 성분을 성인 평균량과 비교해 볼 수 있는 사이트
-                  </p>
+                <div className="gap-2 p-6">
+                  <div className="flex items-center gap-2">                    
+                    <h3 className="text-pink-600 text-xl font-semibold">Agora</h3>
+                    <p className="flex-1 text-gray-500 font-medium">(2025.04)</p>
+                    <p className="bg-pink-200 border-pink-400 border rounded-xl px-3">4인</p>
+                  </div>
+                  <p className="mt-2 font-semibold text-gray-600">에코 체임버 현상을 해결하기 위해 고안된 AI 기반 뉴스 기사 사이트</p>
+                  <div className="py-2">
+                    <p className="pl-2">• Gemini API 사용</p>
+                    <p className="pl-2">• 진보, 중립, 보수 총 3가지 영역의 기사 제공</p>
+                    <p className="pl-2">• AI 챗봇과 대화 기능을 통한 유연한 사고 유도</p>
+                  </div>
+                  <div className="bg-amber-100 border border-amber-400 px-2 rounded-lg">
+                    React, TypeScript, ReactRouter
+                  </div>
+                  <div className="mt-4 flex justify-between text-sm">
+                    <a href="https://github.com/Junseong0829/ImpactAI_Hackathon" className="text-pink-600 hover:underline">GitHub →</a>
+                  </div>
+                </div>
+              </motion.div>
+              {/* Project Block 3*/}
+              <motion.div
+                className="bg-white border hover:shadow-lg transition-all duration-0 shadow rounded-xl overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                <div className="gap-2 p-6">
+                  <div className="flex items-center gap-2">                    
+                    <h3 className="text-pink-600 text-xl font-semibold">CookFolio</h3>
+                    <p className="flex-1 text-gray-500 font-medium">(2025.02 ~ 2025.03)</p>
+                    <p className="bg-pink-200 border-pink-400 border rounded-xl px-3">1인</p>
+                  </div>
+                  <p className="mt-2 font-semibold text-gray-600">다양한 요리법과 영양 성분, 하룻동안의 총 영양 성분을 성인 평균량과 비교해 볼 수 있는 사이트</p>
+                  <div className="py-2">
+                    <p className="pl-2">• 식품의약품안전처의 Open API 사용</p>
+                    <p className="pl-2">• 다양한 음식의 칼로리, 영양 성분, 식재료, 조리 방법 제공</p>
+                    <p className="pl-2">• 본격적인 웹 개발의 길을 걷게 된 프로젝트</p>
+                  </div>
+                  <div className="bg-amber-100 border border-amber-400 px-2 rounded-lg">
+                    React, JavaScript, ReactRouter
+                  </div>
                   <div className="mt-4 flex justify-between text-sm">
                     <a href="https://github.com/Junseong0829/Cooking_Recipe_Management_Service" className="text-pink-600 hover:underline">GitHub →</a>
                   </div>
                 </div>
               </motion.div>
-           
           </div>
         </motion.div>
       </section>
