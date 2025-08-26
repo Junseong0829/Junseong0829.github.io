@@ -538,7 +538,7 @@ export default function Portfolio() {
                 {
                   year: "2025",
                   title: "Impact AI Hackathon",
-                  company: "인공지능연구소장상 (2위)",
+                  company: "GIST 인공지능연구소장상 (2위)",
                   description: "AI 기반 뉴스 기사 사이트 'Agora' 프로젝트로 에코 체임버 현상 해결에 기여",
                   skills: ["React", "TypeScript", "Gemini API", "AI 챗봇", "뉴스 분석"]
                 },
