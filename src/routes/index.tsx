@@ -365,7 +365,7 @@ export default function Portfolio() {
                   "카카오톡과 유사한 채팅 인터페이스로 자연스러운 영어 대화 연습 환경 제공",
                   "단어 및 문장 퀴즈를 통한 체계적인 영어 학습 시스템",
                 ],
-                tech: "React, TypeScript, Node.js, OpenAI API",
+                tech: "React, TypeScript, Tailwind CSS, Tanstack-router",
                 github: "https://github.com/sermones/sermo-fe",
                 demo: "https://demo-page-nu.vercel.app",
                 isMain: false
