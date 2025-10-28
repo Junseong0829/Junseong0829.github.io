@@ -10,20 +10,20 @@ export default function Portfolio() {
     <div className="text-gray-900 scroll-smooth bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50" id="top">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 backdrop-blur-md text-white transition-all duration-500 bg-gradient-to-r from-slate-800/95 via-blue-800/95 to-indigo-800/95 border-b border-white/10">
-        <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+        <div className="flex justify-between items-center gap-2 px-4 sm:px-6 md:px-8 py-4 max-w-7xl mx-auto">
           <motion.h1 
-            className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent"
+            className="text-sm sm:text-base md:text-lg lg:text-xl font-bold bg-gradient-to-r from-blue-300 to-indigo-300 bg-clip-text text-transparent whitespace-nowrap flex-shrink-0"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             LJS's Portfolio
           </motion.h1>
-          <ul className="flex space-x-6 text-sm font-semibold">
+          <ul className="flex space-x-2 sm:space-x-3 md:space-x-4 lg:space-x-6 text-xs sm:text-sm font-semibold overflow-x-auto overflow-hidden">
             {["About me", "Skills", "Archiving", "Projects", "Career"].map((section) => (
               <motion.li key={section} whileHover={{ y: -2 }}>
                 <a 
                   href={`#${section.toLowerCase().replace(/\s/g, "")}`} 
-                  className="hover:text-blue-300 transition-all duration-300 relative group"
+                  className="hover:text-blue-300 transition-all duration-300 relative group whitespace-nowrap"
                 >
                   {section}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-300 to-indigo-300 transition-all duration-300 group-hover:w-full"></span>
@@ -44,13 +44,13 @@ export default function Portfolio() {
         </div>
         
         <motion.div
-          className="relative z-10 text-center p-10 max-w-4xl mx-auto"
+          className="relative z-10 text-center p-4 sm:p-6 md:p-10 max-w-4xl mx-auto px-4 sm:px-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
           <motion.h1 
-            className="text-white text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-transparent"
+            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8 bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-transparent break-words"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -73,9 +73,9 @@ export default function Portfolio() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="space-y-4"
           >
-            <p className="text-white/90 font-light text-xl md:text-2xl">안녕하세요.</p>
-            <p className="text-white/90 font-light text-xl md:text-2xl">작고 단단한 성취를 쌓아가는</p>
-            <p className="text-white/90 font-light text-xl md:text-2xl">프론트엔드 개발자 <span className="font-semibold text-blue-300">이준성</span>입니다.</p>
+            <p className="text-white/90 font-light text-base sm:text-lg md:text-xl lg:text-2xl px-2">안녕하세요.</p>
+            <p className="text-white/90 font-light text-base sm:text-lg md:text-xl lg:text-2xl px-2">작고 단단한 성취를 쌓아가는</p>
+            <p className="text-white/90 font-light text-base sm:text-lg md:text-xl lg:text-2xl px-2">프론트엔드 개발자 <span className="font-semibold text-blue-300">이준성</span>입니다.</p>
           </motion.div>
           
           <motion.div
@@ -91,7 +91,7 @@ export default function Portfolio() {
                   block: 'start'
                 });
               }}
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-indigo-500 text-white text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -102,7 +102,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Me */}
-      <section id="aboutme" className="py-24 bg-white/80 backdrop-blur-sm px-6 md:px-20">
+      <section id="aboutme" className="py-12 sm:py-16 md:py-24 bg-white/80 backdrop-blur-sm px-4 sm:px-6 md:px-8 lg:px-20">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -110,7 +110,7 @@ export default function Portfolio() {
           viewport={{ once: true }}
         > 
           <div className="flex justify-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-center relative">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center relative px-4">
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">About Me</span>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></div>
             </h2>
@@ -158,7 +158,7 @@ export default function Portfolio() {
           viewport={{ once: true }}
         >
           <div className="flex justify-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-center relative">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center relative px-4">
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Skills</span>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></div>
             </h2>
@@ -208,22 +208,22 @@ export default function Portfolio() {
               ].map((section, sectionIndex) => (
                 <motion.div
                   key={section.label}
-                  className="flex items-center gap-6 mb-8 last:mb-0"
+                  className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 mb-8 last:mb-0"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: sectionIndex * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <div className="w-40 flex items-center text-xl font-bold text-slate-800">
-                    <div className="flex">
-                      <img src={section.src} className="w-10" />
+                  <div className="w-full sm:w-48 flex-shrink-0 flex items-center gap-3 text-base sm:text-lg lg:text-xl font-bold text-slate-800">
+                    <div className="w-8 sm:w-10 flex-shrink-0">
+                      <img src={section.src} className="w-full h-auto" />
                     </div>
-                    <div className="flex justify-evenly flex-1">
+                    <div className="whitespace-nowrap">
                       {section.label}
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-3 flex-1 min-w-0">
                     {section.skills.map((skill, skillIndex) => (
                       <motion.span
                         key={skill.name}
@@ -253,7 +253,7 @@ export default function Portfolio() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className="flex justify-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-center relative">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center relative px-4">
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Archiving</span>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></div>
             </h2>
@@ -332,7 +332,7 @@ export default function Portfolio() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className="flex justify-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-center relative">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center relative px-4">
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Projects</span>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></div>
             </h2>
@@ -522,7 +522,7 @@ export default function Portfolio() {
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className="flex justify-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-center relative">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center relative px-4">
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Career</span>
               <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full"></div>
             </h2>
