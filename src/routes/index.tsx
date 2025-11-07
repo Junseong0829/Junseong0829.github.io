@@ -121,7 +121,7 @@ export default function Portfolio() {
               { icon: "../user.svg", label: "이름", value: "이준성" },
               { icon: "../cake.svg", label: "생년월일", value: "02.08.29" },
               { icon: "../envelope.svg", label: "이메일", value: "junseong@gm.gist.ac.kr" },
-              { icon: "../earth.svg", label: "어학", value: "TOEIC 795" },
+              { icon: "../earth.svg", label: "어학", value: "TOEIC 915\n(2025.10.26)" },
               { icon: "../house-line.svg", label: "위치", value: "광주광역시 북구" },
               { icon: "../pencil.svg", label: "학력", value: "GIST 재학 (2021.03~)\n(전기전자컴퓨터공학과)" }
             ].map((item, index) => (
