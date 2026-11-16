@@ -1,91 +1,41 @@
-# React + TypeScript + Vite Boilerplate
+# junseong0829.github.io
 
-A modern React boilerplate project with TypeScript and Vite, featuring a robust development setup and best practices.
+Personal site of Junseong Lee — https://junseong0829.github.io
 
-## Tech Stack
+A single-page academic profile: a short introduction, followed by publications, education, awards and projects.
 
-- **Core**
+## Editing content
 
-  - React 19
-  - TypeScript
-  - Vite
-  - Tailwind CSS
-  - TanStack Router
+All text on the page lives in [`src/content.ts`](src/content.ts). Edit that file to update the bio, contact links or any section entry; no layout code needs to change.
 
-- **Development Tools**
-  - TypeScript for type safety
-  - ESLint for code linting
-  - Prettier for code formatting
-  - HMR (Hot Module Replacement)
+The profile photo is [`public/profile.jpg`](public/profile.jpg).
 
-## Getting Started
+## Development
 
-1. Clone the repository
-
-```bash
-git clone https://github.com/Junseong0829/react-boilerplate
-```
-
-2. Install dependencies
+Requires Node.js 22 or later.
 
 ```bash
 npm install
+npm run dev      # start the dev server
+npm run build    # type-check and build to dist/
+npm run lint
 ```
 
-3. Start the development server
+## Deployment
 
-```bash
-npm run dev
-```
+Pushing to `main` builds the site and publishes it to GitHub Pages through [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). The "Last updated" date in the footer is set at build time.
 
-4. Build for production
+## Structure
 
-```bash
-npm run build
-```
+| Path | Purpose |
+| --- | --- |
+| `src/content.ts` | Page content |
+| `src/Home.tsx` | Page layout and section menu |
+| `src/global.css` | Colors, fonts and component styles |
+| `src/routes/` | TanStack Router route registration |
 
-## Features
+## Stack
 
-- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
-- **TanStack Router**: Type-safe routing solution with automatic route type inference
+React 19, TypeScript, Vite, Tailwind CSS 4, TanStack Router.
 
-## Commit Message Conventions
-
-This project follows the [Conventional Commits](https://www.conventionalcommits.org/) specification. This makes the project history more readable and easier to maintain.
-
-### Commit Message Format
-
-```
-<type>[optional scope]: <description>
-
-[optional body]
-
-[optional footer(s)]
-```
-
-### Types
-
-- `feat`: A new feature
-- `fix`: A bug fix
-- `docs`: Documentation only changes
-- `style`: Changes that do not affect the meaning of the code (white-space, formatting, etc.)
-- `refactor`: A code change that neither fixes a bug nor adds a feature
-- `perf`: A code change that improves performance
-- `test`: Adding missing tests or correcting existing tests
-- `build`: Changes that affect the build system or external dependencies
-- `ci`: Changes to CI configuration files and scripts
-- `chore`: Other changes that don't modify source or test files
-
-### Examples
-
-```
-feat(auth): add login functionality
-fix(api): resolve data fetching error
-docs(readme): update installation instructions
-style(components): format button styles
-refactor(utils): optimize data processing
-```
-
-## License
-
-MIT
+The previous portfolio site is kept on the `backup/portfolio-2025` branch.
