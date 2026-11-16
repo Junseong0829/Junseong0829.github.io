@@ -7,6 +7,8 @@ export type Link = { label: string; href: string };
 export type Entry = {
   period: string;
   title: string;
+  /** 주면 제목이 링크가 됩니다. */
+  href?: string;
   detail?: string;
   links?: Link[];
   todo?: boolean;
@@ -24,20 +26,33 @@ export const profile = {
   bio: [
     [
       { text: "I am an undergraduate student at " },
-      { text: "Gwangju Institute of Science and Technology\u00a0(GIST)", href: "https://www.gist.ac.kr/en/" },
+      {
+        text: "Gwangju Institute of Science and Technology\u00a0(GIST)",
+        href: "https://www.gist.ac.kr/en/",
+      },
       { text: " and a research intern at the " },
-      { text: "Autonomous Computing Systems Lab\u00a0(ACSL)", href: "https://uehwan.github.io" },
+      {
+        text: "Autonomous Computing Systems Lab\u00a0(ACSL)",
+        href: "https://uehwan.github.io",
+      },
       { text: ", advised by Prof.\u00a0Ue\u2011Hwan\u00a0Kim." },
     ],
     [
       { text: "My research focuses on " },
-      { text: "long-horizon vision-language-action\u00a0(VLA) models", strong: true },
+      {
+        text: "long-horizon vision-language-action\u00a0(VLA) models",
+        strong: true,
+      },
       { text: "." },
     ],
   ] satisfies BioSegment[][],
   links: [
     { icon: "email", label: "Email", href: "mailto:junseong@gm.gist.ac.kr" },
-    { icon: "github", label: "GitHub", href: "https://github.com/Junseong0829" },
+    {
+      icon: "github",
+      label: "GitHub",
+      href: "https://github.com/Junseong0829",
+    },
     {
       icon: "linkedin",
       label: "LinkedIn",
@@ -69,6 +84,22 @@ export const education: Entry[] = [
   },
 ];
 
+export const experience: Entry[] = [
+  {
+    period: "Mar 2026 – Present",
+    title: "Autonomous Computing Systems Lab (ACSL)",
+    href: "https://uehwan.github.io",
+    detail: "Research Intern",
+  },
+  {
+    period: "Nov 2025 – Feb 2026",
+    title: "Autonomous Computing Systems Lab (ACSL)",
+    href: "https://uehwan.github.io",
+    detail:
+      "Frontend Developer · Built the frontend for a lab research project",
+  },
+];
+
 export const awards: Entry[] = [
   {
     period: "Apr 2025",
@@ -76,7 +107,10 @@ export const awards: Entry[] = [
     detail:
       "Director's Award, GIST Institute for Artificial Intelligence · Agora, an AI-based news site designed to counter echo chambers",
     links: [
-      { label: "Code", href: "https://github.com/Junseong0829/ImpactAI_Hackathon" },
+      {
+        label: "Code",
+        href: "https://github.com/Junseong0829/ImpactAI_Hackathon",
+      },
     ],
   },
 ];

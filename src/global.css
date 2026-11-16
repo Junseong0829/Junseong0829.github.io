@@ -182,14 +182,22 @@ body {
   top: 0;
   z-index: 10;
   display: flex;
-  justify-content: center;
-  gap: 1.25rem;
+  gap: 1.1rem;
   overflow-x: auto;
   border-bottom: 1px solid var(--line);
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: blur(6px);
   padding: 0 1rem;
   white-space: nowrap;
+}
+
+/* 항목이 다 들어가면 가운데에 모이고, 넘치면 왼쪽부터 가로로 스크롤된다 */
+.topbar a:first-child {
+  margin-left: auto;
+}
+
+.topbar a:last-child {
+  margin-right: auto;
 }
 
 .topbar a {

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   awards,
   education,
+  experience,
   profile,
   projects,
   publications,
@@ -62,10 +63,22 @@ function ContactIcon({ icon }: { icon: ContactLink["icon"] }) {
   );
 }
 
-const sections = [
+// menu 는 사이드바·상단 바에 쓰는 짧은 이름. 없으면 title 을 그대로 쓴다.
+const sections: {
+  id: string;
+  title: string;
+  menu?: string;
+  entries?: Entry[];
+}[] = [
   { id: "about", title: "About" },
   { id: "publications", title: "Publications", entries: publications },
   { id: "education", title: "Education", entries: education },
+  {
+    id: "experience",
+    title: "Work Experience",
+    menu: "Experience",
+    entries: experience,
+  },
   { id: "awards", title: "Awards", entries: awards },
   { id: "projects", title: "Projects", entries: projects },
 ];
@@ -140,14 +153,14 @@ function SectionLinks({
   active: string;
   onSelect: (id: string) => void;
 }) {
-  return sections.map(({ id, title }) => (
+  return sections.map(({ id, title, menu }) => (
     <a
       key={id}
       href={`#${id}`}
       aria-current={active === id ? "location" : undefined}
       onClick={() => onSelect(id)}
     >
-      {title}
+      {menu ?? title}
     </a>
   ));
 }
@@ -167,10 +180,10 @@ function Section({
       <ul className="mt-6 space-y-6">
         {entries.map((entry) => (
           <li
-            key={entry.title}
+            key={entry.title + entry.period}
             className={
               entry.period
-                ? "grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[8.5rem_1fr]"
+                ? "grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[10rem_1fr]"
                 : undefined
             }
           >
@@ -182,7 +195,11 @@ function Section({
             <div>
               <p className="font-medium text-(--ink)">
                 <span className={entry.todo ? "todo" : undefined}>
-                  {entry.title}
+                  {entry.href ? (
+                    <TextLink href={entry.href}>{entry.title}</TextLink>
+                  ) : (
+                    entry.title
+                  )}
                 </span>
               </p>
               {entry.detail && (
