@@ -72,7 +72,7 @@ export const education: Entry[] = [
 export const awards: Entry[] = [
   {
     period: "Apr 2025",
-    title: "2nd Place — Impact AI Hackathon",
+    title: "🥈 2nd Place — Impact AI Hackathon",
     detail:
       "Director's Award, GIST Institute for Artificial Intelligence · Agora, an AI-based news site designed to counter echo chambers",
     links: [
