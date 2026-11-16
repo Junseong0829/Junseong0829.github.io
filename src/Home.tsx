@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   awards,
   education,
+  experience,
   profile,
   projects,
   publications,
@@ -62,10 +63,22 @@ function ContactIcon({ icon }: { icon: ContactLink["icon"] }) {
   );
 }
 
-const sections = [
+// menu 는 사이드바·상단 바에 쓰는 짧은 이름. 없으면 title 을 그대로 쓴다.
+const sections: {
+  id: string;
+  title: string;
+  menu?: string;
+  entries?: Entry[];
+}[] = [
   { id: "about", title: "About" },
   { id: "publications", title: "Publications", entries: publications },
   { id: "education", title: "Education", entries: education },
+  {
+    id: "experience",
+    title: "Work Experience",
+    menu: "Experience",
+    entries: experience,
+  },
   { id: "awards", title: "Awards", entries: awards },
   { id: "projects", title: "Projects", entries: projects },
 ];
@@ -119,6 +132,16 @@ function useActiveSection() {
     };
   }, []);
 
+  // 페이지 본문은 스크립트가 그린 뒤에야 생기므로, "#awards" 같은 주소로 바로
+  // 들어왔을 때 브라우저가 해당 섹션을 찾지 못해 맨 위에 머문다. 처음 그려진 직후
+  // 직접 그 섹션으로 옮긴다.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!sections.some((section) => section.id === id)) return;
+    document.getElementById(id)?.scrollIntoView({ behavior: "instant" });
+    setPinned(id);
+  }, []);
+
   return { active: pinned ?? scrolled, pin: setPinned };
 }
 
@@ -130,14 +153,14 @@ function SectionLinks({
   active: string;
   onSelect: (id: string) => void;
 }) {
-  return sections.map(({ id, title }) => (
+  return sections.map(({ id, title, menu }) => (
     <a
       key={id}
       href={`#${id}`}
       aria-current={active === id ? "location" : undefined}
       onClick={() => onSelect(id)}
     >
-      {title}
+      {menu ?? title}
     </a>
   ));
 }
@@ -157,10 +180,10 @@ function Section({
       <ul className="mt-6 space-y-6">
         {entries.map((entry) => (
           <li
-            key={entry.title}
+            key={entry.title + entry.period}
             className={
               entry.period
-                ? "grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[8.5rem_1fr]"
+                ? "grid grid-cols-1 gap-x-6 gap-y-1 sm:grid-cols-[10rem_1fr]"
                 : undefined
             }
           >
@@ -172,7 +195,11 @@ function Section({
             <div>
               <p className="font-medium text-(--ink)">
                 <span className={entry.todo ? "todo" : undefined}>
-                  {entry.title}
+                  {entry.href ? (
+                    <TextLink href={entry.href}>{entry.title}</TextLink>
+                  ) : (
+                    entry.title
+                  )}
                 </span>
               </p>
               {entry.detail && (
