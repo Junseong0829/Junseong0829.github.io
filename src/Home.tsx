@@ -119,6 +119,16 @@ function useActiveSection() {
     };
   }, []);
 
+  // 페이지 본문은 스크립트가 그린 뒤에야 생기므로, "#awards" 같은 주소로 바로
+  // 들어왔을 때 브라우저가 해당 섹션을 찾지 못해 맨 위에 머문다. 처음 그려진 직후
+  // 직접 그 섹션으로 옮긴다.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!sections.some((section) => section.id === id)) return;
+    document.getElementById(id)?.scrollIntoView({ behavior: "instant" });
+    setPinned(id);
+  }, []);
+
   return { active: pinned ?? scrolled, pin: setPinned };
 }
 
