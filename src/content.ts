@@ -95,8 +95,7 @@ export const experience: Entry[] = [
     period: "Nov 2025 – Feb 2026",
     title: "Autonomous Computing Systems Lab (ACSL)",
     href: "https://uehwan.github.io",
-    detail:
-      "Frontend Developer · Built the frontend for a lab research project",
+    detail: "Frontend Developer",
   },
 ];
 
