@@ -9,12 +9,20 @@ export type Entry = {
   title: string;
   /** 주면 제목이 링크가 됩니다. */
   href?: string;
+  /** 제목 아래 작은 회색 글씨로 나오는 소속·역할 정보. */
+  meta?: string;
   detail?: string;
   links?: Link[];
   todo?: boolean;
 };
 
-export type BioSegment = { text: string; href?: string; strong?: boolean };
+export type BioSegment = {
+  text: string;
+  href?: string;
+  strong?: boolean;
+  /** 넓은 화면(1280px 이상)에서 이 조각 앞에서 줄을 바꿉니다. */
+  breakBefore?: boolean;
+};
 
 export const profile = {
   name: "Junseong Lee",
@@ -30,12 +38,16 @@ export const profile = {
         text: "Gwangju Institute of Science and Technology\u00a0(GIST)",
         href: "https://www.gist.ac.kr/en/",
       },
-      { text: " and a research intern at the " },
+      { text: " and a research intern at the ", breakBefore: true },
       {
         text: "Autonomous Computing Systems Lab\u00a0(ACSL)",
         href: "https://uehwan.github.io",
       },
-      { text: ", advised by Prof.\u00a0Ue\u2011Hwan\u00a0Kim." },
+      { text: "," },
+      {
+        text: " advised by Prof.\u00a0Ue\u2011Hwan\u00a0Kim.",
+        breakBefore: true,
+      },
     ],
     [
       { text: "My research focuses on " },
@@ -103,8 +115,8 @@ export const awards: Entry[] = [
   {
     period: "Apr 2025",
     title: "🥈 2nd Place — Impact AI Hackathon",
-    detail:
-      "Director's Award, GIST Institute for Artificial Intelligence · Agora, an AI-based news site designed to counter echo chambers",
+    meta: "Director's Award · GIST Institute for Artificial Intelligence",
+    detail: "Agora, an AI-based news site designed to counter echo chambers.",
     links: [
       {
         label: "Code",
@@ -118,8 +130,9 @@ export const projects: Entry[] = [
   {
     period: "Dec 2025 – Present",
     title: "GIST Chatbot",
+    meta: "GSA Infoteam · Frontend",
     detail:
-      "Embeddable chatbot widget for GIST web services, installed with a single script tag · GSA Infoteam, frontend",
+      "An embeddable chatbot widget for GIST web services, installed with a single script tag.",
     links: [
       { label: "Code", href: "https://github.com/gsainfoteam/chatbot-fe" },
       { label: "Site", href: "https://chatbot.gistory.me" },
