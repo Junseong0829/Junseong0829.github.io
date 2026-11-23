@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import {
   awards,
   education,
@@ -6,6 +6,7 @@ import {
   profile,
   projects,
   publications,
+  type BioSegment,
   type ContactLink,
   type Entry,
 } from "./content";
@@ -202,6 +203,9 @@ function Section({
                   )}
                 </span>
               </p>
+              {entry.meta && (
+                <p className="mt-0.5 text-sm text-(--muted)">{entry.meta}</p>
+              )}
               {entry.detail && (
                 <p className="mt-1 text-[0.95rem] leading-relaxed text-(--body)">
                   {entry.detail}
@@ -231,13 +235,13 @@ export default function Home() {
       <nav aria-label="Sections" className="topbar">
         <SectionLinks active={active} onSelect={pin} />
       </nav>
-      <div className="mx-auto flex max-w-5xl gap-10 px-5 pb-16 pt-10 sm:px-8 md:pt-20">
+      <div className="mx-auto flex max-w-6xl gap-10 px-5 pb-16 pt-10 sm:px-8 md:pt-20">
         <aside className="hidden w-36 shrink-0 md:block">
           <nav aria-label="Sections" className="sidebar">
             <SectionLinks active={active} onSelect={pin} />
           </nav>
         </aside>
-        <main className="min-w-0 max-w-3xl flex-1">
+        <main className="min-w-0 max-w-[55rem] flex-1">
           <header id="about" className="pb-14">
             <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-stretch sm:gap-10">
               <div className="portrait">
@@ -261,22 +265,24 @@ export default function Home() {
                 <div className="bio mt-5 space-y-3 leading-relaxed text-(--body)">
                   {profile.bio.map((paragraph, index) => (
                     <p key={index}>
-                      {paragraph.map((segment) =>
-                        "href" in segment && segment.href ? (
-                          <TextLink key={segment.text} href={segment.href}>
-                            {segment.text}
-                          </TextLink>
-                        ) : "strong" in segment && segment.strong ? (
-                          <strong
-                            key={segment.text}
-                            className="font-semibold text-(--ink)"
-                          >
-                            {segment.text}
-                          </strong>
-                        ) : (
-                          <span key={segment.text}>{segment.text}</span>
-                        ),
-                      )}
+                      {paragraph.map((segment: BioSegment) => (
+                        <Fragment key={segment.text}>
+                          {segment.breakBefore && (
+                            <br className="hidden xl:inline" />
+                          )}
+                          {segment.href ? (
+                            <TextLink href={segment.href}>
+                              {segment.text}
+                            </TextLink>
+                          ) : segment.strong ? (
+                            <strong className="font-semibold text-(--ink)">
+                              {segment.text}
+                            </strong>
+                          ) : (
+                            segment.text
+                          )}
+                        </Fragment>
+                      ))}
                     </p>
                   ))}
                 </div>
